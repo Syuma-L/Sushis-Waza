@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Sushis Waza 🥋</title>
+  <link rel="icon" type="image/png" href="images/logo_sushis_waza.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Feuille de styles principale -->
+  <link rel="stylesheet" href="style/sushi.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════ -->
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo_sushis_waza.png" alt="Logo Sushi Wasa">
+      <div>
+        <div class="brand-name">Sushis Waza</div>
+        <div class="brand-sub">Artisan depuis 2023</div>
+      </div>
+    </a>
+
+    <a href="index.html">Menu</a>
+    <a href="side.html">Accompagnements</a>
+    <a href="dessert.html" class="active">Desserts</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+
+    <button class="panier-btn" onclick="togglePanier()">
+      🛒 Panier
+      <span class="panier-badge" id="badge">0</span>
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-line"></div>
+    <h1>Sushis <span>Waza</span></h1>
+    <p class="hero-sub">🥋 Le dojo du goût japonais</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🐟 Poissons frais du jour</span>
+      <span class="hero-tag">🍚 Riz vinaigré artisanal</span>
+      <span class="hero-tag">🚴 Livraison 30 min</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       MENU
+  ══════════════════════════════════ -->
+  <div class="section-header">
+    <span class="kanji">寿司</span>
+    <h2>Nos desserts</h2>
+  </div>
+
+  <div class="menu-container">
+    <div class="menu-grid">
+
+      <!-- Produit 1 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/dessert1.jpg" alt="Mochi"
+               onerror="this.src='https://kaitsuko.fr/cdn/shop/articles/Mochis_specialite_japonaise_couteau_haut_de_gamme_9dda9e06-3395-4de0-9cb7-20aab5a8d4c1.jpg?v=1738224355'">
+          <span class="produit-badge">⭐ Populaire</span>
+        </div>
+        <div class="produit-body">
+          <h3>Mochi</h3>
+          <p class="produit-desc">mochi japonais au thé vert.</p>
+          <div class="produit-footer">
+            <span class="prix">5€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Mochi', 12, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 2 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/dessert2.jpg" alt="Tiramisu Matcha"
+               onerror="this.src='https://erictriesit.com/wp-content/uploads/2025/03/matcha-tiramisu-1x1-1-735x735.jpg'">
+          <span class="produit-badge badge-gold">🔥 Chef</span>
+        </div>
+        <div class="produit-body">
+          <h3>Tiramisu au Matcha</h3>
+          <p class="produit-desc">tiramisu, matcha.</p>
+          <div class="produit-footer">
+            <span class="prix">7€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Tiramisu Matcha', 16, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+  
+
+    </div><!-- /.menu-grid -->
+  </div><!-- /.menu-container -->
+
+
+  <!-- ══════════════════════════════════
+       PANIER OVERLAY
+  ══════════════════════════════════ -->
+  <div class="panier-overlay" id="panierOverlay" onclick="togglePanier()"></div>
+
+  <!-- ══════════════════════════════════
+       PANIER — PANNEAU LATÉRAL
+  ══════════════════════════════════ -->
+  <div class="panier-panel" id="panierPanel">
+    <div class="panier-header">
+      <h2>🛒 Mon Panier</h2>
+      <button class="panier-close" onclick="togglePanier()">✕</button>
+    </div>
+
+    <div class="panier-items" id="panierItems">
+      <div class="panier-empty">
+        <div class="empty-icon">🍱</div>
+        <p>Votre panier est vide.<br>Ajoutez des sushis !</p>
+      </div>
+    </div>
+
+    <div class="panier-footer" id="panierFooter" style="display:none">
+      <div class="panier-total">
+        <span>Total</span>
+        <span id="panierTotal">0€</span>
+      </div>
+      <button class="btn-commander">Commander →</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+
+      <!-- Colonne 1 : identité -->
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo_sushis_waza.png" alt="Logo Sushis Waza">
+          <div>
+            <div class="footer-logo-name">Sushis Waza</div>
+            <div class="footer-logo-tagline">Le dojo du goût 🥋</div>
+          </div>
+        </div>
+        <p class="footer-description">
+          Sushis artisanaux préparés chaque jour avec les meilleurs poissons.
+          Commandez en ligne, livré en 30 min.
+        </p>
+      </div>
+
+      <!-- Colonne 2 : navigation -->
+      <div>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Menu</a></li>
+          <li><a href="side.html">Accompagnements</a></li>
+          <li><a href="dessert.html">Desserts</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : contact -->
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <a href="https://www.instagram.com/sushis_waza"
+   target="_blank"
+   class="footer-instagram">
+   <img src="images/instagram.png" class="icon-social">
+   Suivez-nous sur Instagram
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-grid -->
+
+    <div class="footer-bottom">
+      <span>© 2025 Sushis Waza — Tous droits réservés</span>
+      <span>Fait avec 🍣 à Paris</span>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT — Panier
+  ══════════════════════════════════ -->
+  <script src="js/panier.js"></script>
+
+</body>
+</html>

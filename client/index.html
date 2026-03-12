@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Sushis Waza 🥋</title>
+  <link rel="icon" type="image/png" href="images/logo_sushis_waza.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Feuille de styles principale -->
+  <link rel="stylesheet" href="style/sushi.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════ -->
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo_sushis_waza.png" alt="Logo Sushi Wasa">
+      <div>
+        <div class="brand-name">Sushis Waza</div>
+        <div class="brand-sub">Artisan depuis 2023</div>
+      </div>
+    </a>
+
+    <a href="index.html" class="active">Menu</a>
+    <a href="side.html">Accompagnements</a>
+    <a href="dessert.html">Desserts</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+
+    <button class="panier-btn" onclick="togglePanier()">
+      🛒 Panier
+      <span class="panier-badge" id="badge">0</span>
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-line"></div>
+    <h1>Sushis <span>Waza</span></h1>
+    <p class="hero-sub">🥋 Le dojo du goût japonais</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🐟 Poissons frais du jour</span>
+      <span class="hero-tag">🍚 Riz vinaigré artisanal</span>
+      <span class="hero-tag">🚴 Livraison 30 min</span>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       MENU
+  ══════════════════════════════════ -->
+  <div class="section-header">
+    <span class="kanji">寿司</span>
+    <h2>Nos Menus</h2>
+  </div>
+
+  <div class="menu-container">
+    <div class="menu-grid">
+
+      <!-- Produit 1 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi1.jpg" alt="California Roll"
+               onerror="this.src='https://images.immediate.co.uk/production/volatile/sites/30/2024/01/California-roll-a87199c.jpg?quality=90&webp=true&resize=800,726'">
+          <span class="produit-badge">⭐ Populaire</span>
+        </div>
+        <div class="produit-body">
+          <h3>California Roll</h3>
+          <p class="produit-desc">Crabe, avocat, concombre, masago. Un classique indémodable.</p>
+          <div class="produit-footer">
+            <span class="prix">12€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('California Roll', 12, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 2 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi2.jpg" alt="Dragon Roll"
+               onerror="this.src='https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&q=80'">
+          <span class="produit-badge badge-gold">🔥 Chef</span>
+        </div>
+        <div class="produit-body">
+          <h3>Dragon Roll</h3>
+          <p class="produit-desc">Crevettes tempura, avocat, sauce anguille, sésame doré.</p>
+          <div class="produit-footer">
+            <span class="prix">16€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Dragon Roll', 16, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 3 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi3.jpg" alt="Nigiri Saumon"
+               onerror="this.src='https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&q=80'">
+        </div>
+        <div class="produit-body">
+          <h3>Nigiri Saumon x6</h3>
+          <p class="produit-desc">Saumon Label Rouge, riz assaisonné à la main, wasabi maison.</p>
+          <div class="produit-footer">
+            <span class="prix">14€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Nigiri Saumon x6', 14, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 4 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi4.jpg" alt="Spicy Tuna Roll"
+               onerror="this.src='https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80'">
+        </div>
+        <div class="produit-body">
+          <h3>Spicy Tuna Roll</h3>
+          <p class="produit-desc">Thon rouge, sriracha, concombre, tobiko. Pour les courageux.</p>
+          <div class="produit-footer">
+            <span class="prix">15€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Spicy Tuna Roll', 15, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 5 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi5.jpg" alt="Veggie Rainbow Roll"
+               onerror="this.src='https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=400&q=80'">
+          <span class="produit-badge badge-green">🌱 Vegan</span>
+        </div>
+        <div class="produit-body">
+          <h3>Veggie Rainbow Roll</h3>
+          <p class="produit-desc">Avocat, carotte, poivron, mangue, riz complet.</p>
+          <div class="produit-footer">
+            <span class="prix">13€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Veggie Rainbow Roll', 13, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 6 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi6.jpg" alt="Plateau Wasa"
+               onerror="this.src='https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80'">
+          <span class="produit-badge">👑 Best Seller</span>
+        </div>
+        <div class="produit-body">
+          <h3>Plateau Wasa — 24 pcs</h3>
+          <p class="produit-desc">Notre sélection signature : nigiri, maki, california & uramaki.</p>
+          <div class="produit-footer">
+            <span class="prix">38€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Plateau Wasa 24 pcs', 38, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 7 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/StValentin.png" alt="Plateau St Valentin"
+               onerror="this.src='https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80'">
+          <span class="produit-badge">👑 limited</span>
+        </div>
+        <div class="produit-body">
+          <h3>Plateau st Valentin</h3>
+          <p class="produit-desc">Notre sélection signature : nigiri, maki, california & uramaki. A partager à deux ou plus </p>
+          <div class="produit-footer">
+            <span class="prix">50€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Plateau Wasa 24 pcs', 38, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.menu-grid -->
+  </div><!-- /.menu-container -->
+
+
+  <!-- ══════════════════════════════════
+       PANIER OVERLAY
+  ══════════════════════════════════ -->
+  <div class="panier-overlay" id="panierOverlay" onclick="togglePanier()"></div>
+
+  <!-- ══════════════════════════════════
+       PANIER — PANNEAU LATÉRAL
+  ══════════════════════════════════ -->
+  <div class="panier-panel" id="panierPanel">
+    <div class="panier-header">
+      <h2>🛒 Mon Panier</h2>
+      <button class="panier-close" onclick="togglePanier()">✕</button>
+    </div>
+
+    <div class="panier-items" id="panierItems">
+      <div class="panier-empty">
+        <div class="empty-icon">🍱</div>
+        <p>Votre panier est vide.<br>Ajoutez des sushis !</p>
+      </div>
+    </div>
+
+    <div class="panier-footer" id="panierFooter" style="display:none">
+      <div class="panier-total">
+        <span>Total</span>
+        <span id="panierTotal">0€</span>
+      </div>
+      <button class="btn-commander">Commander →</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+
+      <!-- Colonne 1 : identité -->
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo_sushis_waza.png" alt="Logo Sushis Waza">
+          <div>
+            <div class="footer-logo-name">Sushis Waza</div>
+            <div class="footer-logo-tagline">Le dojo du goût 🥋</div>
+          </div>
+        </div>
+        <p class="footer-description">
+          Sushis artisanaux préparés chaque jour avec les meilleurs poissons.
+          Commandez en ligne, livré en 30 min.
+        </p>
+      </div>
+
+      <!-- Colonne 2 : navigation -->
+      <div>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Menu</a></li>
+          <li><a href="side.html">Accompagnements</a></li>
+          <li><a href="dessert.html">Desserts</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : contact -->
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <a href="https://www.instagram.com/sushis_waza"
+   target="_blank"
+   class="footer-instagram">
+   <img src="images/instagram.png" class="icon-social">
+   Suivez-nous sur Instagram
+</a>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-grid -->
+
+    <div class="footer-bottom">
+      <span>© 2025 Sushis Waza — Tous droits réservés</span>
+      <span>Fait avec 🍣 à Paris</span>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT — Panier
+  ══════════════════════════════════ -->
+  <script src="js/panier.js"></script>
+
+</body>
+</html>

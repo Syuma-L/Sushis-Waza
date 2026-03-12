@@ -1,0 +1,716 @@
+﻿/* =============================================
+   SUSHI WASA — Feuille de styles principale
+   ============================================= */
+
+/* ── VARIABLES ── */
+:root {
+  --cream: #F5EDD8;
+  --warm-white: #FDF8EE;
+  --red: #C0392B;
+  --red-dark: #922B21;
+  --red-light: #E74C3C;
+  --ink: #1A1A1A;
+  --ink-mid: #3D3D3D;
+  --gold: #C9A84C;
+  --green: #2E7D5B;
+  --green-light: #3A9970;
+}
+
+/* ── RESET ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── BASE ── */
+body {
+  background-color: var(--cream);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Texture de fond subtile */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='none'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23000' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-bottom: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+nav .logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.5rem 0.6rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 1.5rem;
+  text-decoration: none;
+}
+
+nav .logo-wrap img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  object-fit: cover;
+}
+
+nav .brand-name {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+nav .brand-sub {
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+nav a {
+  color: rgba(245, 237, 216, 0.75);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  padding: 1.2rem 1rem;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--cream);
+  border-bottom-color: var(--red);
+}
+
+nav .panier-btn {
+  margin-left: auto;
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.15s;
+}
+
+nav .panier-btn:hover {
+  background: var(--red-light);
+  transform: translateY(-1px);
+}
+
+nav .panier-badge {
+  background: white;
+  color: var(--red);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  background: var(--ink);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Grand kanji décoratif en arrière-plan */
+.hero::before {
+  content: '和';
+  position: absolute;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20rem;
+  color: rgba(255, 255, 255, 0.03);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.hero-line {
+  width: 40px;
+  height: 3px;
+  background: var(--red);
+  margin: 0 auto 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 span {
+  color: var(--red-light);
+}
+
+.hero-sub {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-tag {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(245, 237, 216, 0.8);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── EN-TÊTES DE SECTION ── */
+.section-header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  position: relative;
+}
+
+/* Kanji décoratif en filigrane */
+.section-header .kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 5rem;
+  color: rgba(0, 0, 0, 0.06);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.section-header h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  position: relative;
+  z-index: 1;
+}
+
+/* Trait rouge sous les titres de section */
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--red);
+  margin: 0.75rem auto 0;
+}
+
+/* Variantes de badge */
+.produit-badge.badge-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.produit-badge.badge-green {
+  background: var(--green);
+}
+
+/* ── GRILLE DU MENU ── */
+.menu-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── CARTE PRODUIT ── */
+.produit {
+  background: var(--warm-white);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+}
+
+.produit:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.produit-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #E8E0CC;
+}
+
+.produit-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.produit:hover .produit-img-wrap img {
+  transform: scale(1.06);
+}
+
+.produit-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--red);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+}
+
+.produit-body {
+  padding: 1.1rem 1.25rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.produit-body h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.produit-desc {
+  font-size: 0.8rem;
+  color: #777;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.produit-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.prix {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--red-dark);
+}
+
+.btn-add {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-add:hover {
+  background: var(--red);
+  transform: scale(1.03);
+}
+
+.btn-add.added {
+  background: var(--green);
+}
+
+/* ── PANIER — OVERLAY ── */
+.panier-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.panier-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── PANIER — PANNEAU LATÉRAL ── */
+.panier-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 380px;
+  max-width: 95vw;
+  background: var(--warm-white);
+  z-index: 201;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
+}
+
+.panier-panel.open {
+  transform: translateX(0);
+}
+
+.panier-header {
+  background: var(--ink);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--red);
+}
+
+.panier-header h2 {
+  font-family: 'Noto Serif JP', serif;
+  color: var(--cream);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.panier-close {
+  background: none;
+  border: none;
+  color: rgba(245, 237, 216, 0.7);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.panier-close:hover {
+  color: var(--red-light);
+}
+
+.panier-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.panier-empty {
+  text-align: center;
+  color: #aaa;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+.panier-empty .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.panier-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.panier-item-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.panier-item-prix {
+  color: var(--red-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.panier-item-remove {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  transition: color 0.2s;
+}
+
+.panier-item-remove:hover {
+  color: var(--red);
+}
+
+.panier-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+}
+
+.panier-total {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.panier-total span:last-child {
+  color: var(--red-dark);
+}
+
+.btn-commander {
+  width: 100%;
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-commander:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+/* image personne */
+.personne {
+  max-width: 20%;
+  color : #1A1A1A;
+  text-decoration: none;
+  display: inline-flex;
+  padding: 0.25rem 0.6rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(245, 237, 216, 0.7);
+  padding: 3rem 2rem 2rem;
+  border-top: 3px solid var(--red);
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer h3 {
+  font-family: 'Noto Serif JP', serif;
+  color: var(--cream);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: rgba(245, 237, 216, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+.footer-description {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.footer-contact-item {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  list-style: none;
+}
+
+.footer-contact-item.last {
+  margin-bottom: 1rem;
+}
+
+.footer-address {
+  font-size: 0.82rem;
+  list-style: none;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(245, 237, 216, 0.35);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(192, 57, 43, 0.5);
+}
+
+.footer-logo-name {
+  color: var(--cream);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+}
+
+.footer-logo-tagline {
+  font-size: 0.75rem;
+}
+
+.icon-social {
+  width: 30px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: white;
+  background: rgba(26, 26, 26);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.footer-instagram2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color:  #1A1A1A;
+  background: #F5EDD8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.footer-instagram:hover {
+  opacity: 0.85;
+}
+
+.footer-instagram2:hover {
+  opacity: 0.85;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  nav a {
+    display: none;
+  }
+
+  nav a.active {
+    display: flex;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

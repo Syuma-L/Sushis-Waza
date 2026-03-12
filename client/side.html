@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Sushis Waza 🥋</title>
+  <link rel="icon" type="image/png" href="images/logo_sushis_waza.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Feuille de styles principale -->
+  <link rel="stylesheet" href="style/sushi.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════ -->
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo_sushis_waza.png" alt="Logo Sushi Wasa">
+      <div>
+        <div class="brand-name">Sushis Waza</div>
+        <div class="brand-sub">Artisan depuis 2023</div>
+      </div>
+    </a>
+
+    <a href="index.html">Menu</a>
+    <a href="side.html" class="active">Accompagnements</a>
+    <a href="dessert.html">Desserts</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+
+    <button class="panier-btn" onclick="togglePanier()">
+      🛒 Panier
+      <span class="panier-badge" id="badge">0</span>
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-line"></div>
+    <h1>Sushis <span>Waza</span></h1>
+    <p class="hero-sub">🥋 Le dojo du goût japonais</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🐟 Poissons frais du jour</span>
+      <span class="hero-tag">🍚 Riz vinaigré artisanal</span>
+      <span class="hero-tag">🚴 Livraison 30 min</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       Side
+  ══════════════════════════════════ -->
+  <div class="section-header">
+    <span class="kanji">寿司</span>
+    <h2>Nos Accompagnements</h2>
+  </div>
+
+  <div class="menu-container">
+    <div class="menu-grid">
+
+      <!-- Produit 1 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi1.jpg" alt="Nem au poulet"
+               onerror="this.src='https://www.atelierdeschefs.fr/_next/image/?url=https%3A%2F%2Fadc-dev-images-recipes.s3.eu-west-1.amazonaws.com%2FREP_jl_1187_nems_cambodgienne_sauce_chili.JPG&w=1080&q=80'">
+          <span class="produit-badge">⭐ Populaire</span>
+        </div>
+        <div class="produit-body">
+          <h3>nem au poulet</h3>
+          <p class="produit-desc">poulet...</p>
+          <div class="produit-footer">
+            <span class="prix">4€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Nem au poulet', 12, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 2 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi2.jpg" alt="Samoussa"
+               onerror="this.src='https://assets.afcdn.com/recipe/20250304/158722_w314h314c1cx2736cy1824cxt0cyt0cxb5472cyb3648.webp'">
+          <span class="produit-badge badge-gold">🔥 Chef</span>
+        </div>
+        <div class="produit-body">
+          <h3>Samoussa</h3>
+          <p class="produit-desc">Crevettes....</p>
+          <div class="produit-footer">
+            <span class="prix">3€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Samoussa', 16, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 3 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi3.jpg" alt="Nigiri Saumon"
+               onerror="this.src='data:image/jpeg;base64,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'">
+        </div>
+        <div class="produit-body">
+          <h3>Nigiri Saumon x6</h3>
+          <p class="produit-desc">Saumon Label Rouge, riz assaisonné à la main, wasabi maison.</p>
+          <div class="produit-footer">
+            <span class="prix">14€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Nigiri Saumon x6', 14, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 4 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi4.jpg" alt="Karaage"
+               onerror="this.src='https://twoplaidaprons.com/wp-content/uploads/2023/06/karaage-chicken-on-plate-with-dipping-sauce-thumbnail-shot.jpg'">
+        </div>
+        <div class="produit-body">
+          <h3>Karaage</h3>
+          <p class="produit-desc">poulet frit.</p>
+          <div class="produit-footer">
+            <span class="prix">7€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Karahage', 15, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Produit 6 -->
+      <div class="produit">
+        <div class="produit-img-wrap">
+          <img src="images/sushi6.jpg" alt="Plateau Wasa"
+               onerror="this.src='https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80'">
+          <span class="produit-badge">👑 Best Seller</span>
+        </div>
+        <div class="produit-body">
+          <h3>Plateau Waza — 24 pcs</h3>
+          <p class="produit-desc">Notre sélection signature : nigiri, maki, california & uramaki.</p>
+          <div class="produit-footer">
+            <span class="prix">38€</span>
+            <button class="btn-add" onclick="ajouterAuPanier('Plateau Wasa 24 pcs', 38, this)">＋ Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.menu-grid -->
+  </div><!-- /.menu-container -->
+
+
+  <!-- ══════════════════════════════════
+       PANIER OVERLAY
+  ══════════════════════════════════ -->
+  <div class="panier-overlay" id="panierOverlay" onclick="togglePanier()"></div>
+
+  <!-- ══════════════════════════════════
+       PANIER — PANNEAU LATÉRAL
+  ══════════════════════════════════ -->
+  <div class="panier-panel" id="panierPanel">
+    <div class="panier-header">
+      <h2>🛒 Mon Panier</h2>
+      <button class="panier-close" onclick="togglePanier()">✕</button>
+    </div>
+
+    <div class="panier-items" id="panierItems">
+      <div class="panier-empty">
+        <div class="empty-icon">🍱</div>
+        <p>Votre panier est vide.<br>Ajoutez des sushis !</p>
+      </div>
+    </div>
+
+    <div class="panier-footer" id="panierFooter" style="display:none">
+      <div class="panier-total">
+        <span>Total</span>
+        <span id="panierTotal">0€</span>
+      </div>
+      <button class="btn-commander">Commander →</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+
+      <!-- Colonne 1 : identité -->
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo_sushis_waza.png" alt="Logo Sushi Wasa">
+          <div>
+            <div class="footer-logo-name">Sushis Waza</div>
+            <div class="footer-logo-tagline">Le dojo du goût 🥋</div>
+          </div>
+        </div>
+        <p class="footer-description">
+          Sushis artisanaux préparés chaque jour avec les meilleurs poissons.
+          Commandez en ligne, livré en 30 min.
+        </p>
+      </div>
+
+      <!-- Colonne 2 : navigation -->
+      <div>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Menu</a></li>
+          <li><a href="side.html">Accompagnements</a></li>
+          <li><a href="dessert.html">Desserts</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : contact -->
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li class="footer-contact-item">
+            <a href="https://www.instagram.com/sushis_waza"
+   target="_blank"
+   class="footer-instagram">
+   <img src="images/instagram.png" class="icon-social">
+   Suivez-nous sur Instagram
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-grid -->
+
+    <div class="footer-bottom">
+      <span>© 2025 Sushis Waza — Tous droits réservés</span>
+      <span>Fait avec 🍣 à Paris</span>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT — Panier
+  ══════════════════════════════════ -->
+  <script src="js/panier.js"></script>
+
+</body>
+</html>
