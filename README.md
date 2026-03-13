@@ -7,7 +7,7 @@ Serveur web Python pour l'application **Sushis Waza**, gérant les comandes de s
 
 - Python 3.x
 - [Matplotlib](https://matplotlib.org/)
- ou
+  
 ```bash
 pip install matplotlib
 ```
