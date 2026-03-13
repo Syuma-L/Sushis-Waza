@@ -3,11 +3,6 @@
 Serveur web Python pour l'application **Sushis Waza**, gérant les comandes de sushis sur Paris.
 
 ---
-
-## 📋 Description
-
-Ce projet expose une API REST légère, construite avec les modules standards de Python (`http.server`, `socketserver`).
-
 ## 🛠️ Prérequis
 
 - Python 3.x
