@@ -1,6 +1,6 @@
 # 🍣 Sushis Waza – Serveur Web
 
-Serveur web Python pour l'application **Sushis Waza**, gérant les comandes de sushis sur Paris.
+Serveur web Python pour l'application **Sushis Waza**, gérant les commandes de sushis sur Paris.
 
 ---
 ## 🛠️ Prérequis
